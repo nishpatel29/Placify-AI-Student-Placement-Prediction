@@ -1,0 +1,7 @@
+[server]
+# Local development port for the main Placify AI repository.
+# Other local clones must use different ports.
+port = 8501
+
+[theme]
+base = "dark"

@@ -1,0 +1,9 @@
+PLACIFY AI — STUDENT PLACEMENT PREDICTION
+Title: Student Placement Prediction using Decision Tree Classification
+Inputs: CGPA, Technical Skills Score, Internship Experience, Aptitude Score
+Output: Placed / Not Placed
+Method: dataset → train/test split → Decision Tree → evaluation → Streamlit dashboard
+Metrics: Accuracy, Precision, Recall, F1 Score
+Special features: confidence, conclusion, improvement guidance and 4-week recovery plan.
+Limitation: synthetic dataset; academic demonstration only.
+Future scope: real permitted college data, more features, model comparison and CSV batch prediction.
