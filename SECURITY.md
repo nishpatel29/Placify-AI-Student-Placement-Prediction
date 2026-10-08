@@ -1,30 +1,83 @@
 # Security Policy
 
+## Overview
+
+Placify AI is an academic and portfolio project that includes user authentication, prediction history, and database-backed application features.
+
+Security is treated as an important part of the project, especially because the application handles account credentials and student-related prediction inputs.
+
+Please report security issues responsibly rather than publishing credentials, personal information, or exploitable details in a public issue.
+
+---
+
 ## Scope
 
-Placify AI is an academic/portfolio project. Please report security issues responsibly rather than publishing credentials or exploitable details in a public issue.
+This security policy applies to:
 
-## Never commit
+- The Placify AI Streamlit application
+- Authentication and account management
+- Prediction history and user-specific data
+- Local SQLite database usage
+- Deployed PostgreSQL database usage
+- Environment variables and application secrets
+- Repository and deployment configuration
+- Project documentation and supporting files
 
-- passwords or password hashes from real users
-- API keys, access tokens, GitHub tokens, or private keys
+The included placement dataset is synthetic/demo data and does not represent real institutional placement records.
+
+---
+
+## Never Commit Sensitive Information
+
+Never commit or publish:
+
+- Plaintext passwords
+- Real user passwords or password hashes
+- API keys
+- Access tokens
+- GitHub tokens
+- Private keys
+- Database credentials
+- PostgreSQL connection strings containing credentials
 - `.env` files
 - `.streamlit/secrets.toml`
-- database credentials
-- real student records or confidential college/company information
+- Streamlit deployment secrets
+- Real student records
+- Personally identifiable student information
+- Confidential college or company information
+- Production database exports containing private information
+- Authentication/session secrets
 
-## Authentication security
+Use `.env.example` only for documenting required environment-variable names and safe placeholder values.
 
-Passwords entered into Placify AI are stored as salted PBKDF2-SHA256 password hashes, not plaintext passwords. Production deployments should use a managed PostgreSQL database and secure secret storage.
+---
 
-## If a secret is exposed
+## Authentication Security
 
-1. Revoke or rotate the exposed credential immediately.
-2. Remove it from the working tree.
-3. Check Git history for previous exposure.
-4. Rotate any credentials that may have been derived from or connected to the exposed secret.
-5. If necessary, rewrite Git history before making the repository public.
+Placify AI does not store user passwords as plaintext.
 
-## Reporting
+Passwords entered by users are processed using salted PBKDF2-SHA256 password hashing before being stored.
 
-For a private security report, contact the repository owner through the contact method listed in the project profile. Do not include live credentials in a report.
+The application uses authentication and session handling to restrict account-specific functionality.
+
+Prediction history is associated with the authenticated user so that users should only access their own saved prediction records through the application.
+
+For production deployments, database credentials and other sensitive configuration values should be stored using the deployment platform's secure secret-management mechanism rather than committed to source control.
+
+---
+
+## Database Security
+
+### Local Development
+
+Local development can use SQLite for convenience.
+
+Local SQLite database files are ignored by Git using the repository's `.gitignore` configuration.
+
+Examples of ignored local database files include:
+
+```text
+*.db
+*.sqlite
+*.sqlite3
+```
