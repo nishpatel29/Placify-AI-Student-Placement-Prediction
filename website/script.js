@@ -1,7 +1,7 @@
 // Replace these three values after the GitHub repository and Streamlit app exist.
 const LINKS = {
-  liveApp: "https://YOUR-STREAMLIT-APP.streamlit.app",
-  github: "https://github.com/YOUR-GITHUB-USERNAME/Placify-AI-Student-Placement-Prediction",
+  liveApp: "https://nishpatel29-placify-ai-student-placement-prediction-app-oub93y.streamlit.app/",
+  github: "https://github.com/nishpatel29/Placify-AI-Student-Placement-Prediction",
   portfolio: "https://YOUR-PORTFOLIO-URL"
 };
 
